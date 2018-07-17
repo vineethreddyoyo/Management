@@ -23,6 +23,9 @@ public class Request {
         private int hotel_id;
 
 
+        public Request(){
+
+        }
 
         public Request(Long requestId, int hotel_id) {
             this.requestId = requestId;

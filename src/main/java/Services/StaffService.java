@@ -31,15 +31,15 @@ public class StaffService {
 		return "staff added";
 	}
 
-	public List<Staff> getStaff(int hotel_id){
+// public List<Staff> getStaff(int hotel_id){
 
-		return sr.findAllByhotelId(hotel_id);
-	}
+	//	return sr.findAllByhotelI(hotel_id);
+//	}
 
 	public String allocateStaff(int staff_id,int current_hotel_id,int allocated_hotel_id){
 
 
-		Staff staff = sr.findBystaffId();
+		Staff staff = sr.findBystaffId(staff_id);
 		Hotel alloc_hotel = hr.findByhotelId(allocated_hotel_id);
 		Hotel curr_hotel = hr.findByhotelId(current_hotel_id);
 		alloc_hotel.setCurrentStaff(alloc_hotel.getCurrentStaff()+1);
@@ -85,8 +85,8 @@ public class StaffService {
 		AllocatedHotel.setCurrentStaff(AllocatedHotel.getCurrentStaff()+1);
 		hr.save(AllocatedHotel);
 		
-		
-		return "allocated";*/
+		*/
+		return "allocated";
 	}
 
 

@@ -4,8 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@SpringBootApplication(scanBasePackages={"com.example.management",
-		"Repository", "Services", "Controller"})
+@SpringBootApplication(scanBasePackages={"com.example.management", "Services", "Controller"})
 @EnableJpaAuditing
 public class ManagementApplication {
 
