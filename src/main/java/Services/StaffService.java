@@ -1,7 +1,7 @@
 package Services;
 
 
-
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +30,28 @@ public class StaffService {
 		sr.save(s);
 		return "staff added";
 	}
+
+	public List<Staff> getStaff(int hotel_id){
+
+		return sr.findAllByhotelId(hotel_id);
+	}
 	
-	
-	public String allocateStaff(Long hotel_id)
-	{
-		double maxi = 100;
+	public String allocateStaff(int staff_id,int current_hotel_id,int allocated_hotel_id){
+
+
+		Staff staff = sr.findBystaffId();
+		Hotel alloc_hotel = hr.findByhotelId(allocated_hotel_id);
+		Hotel curr_hotel = hr.findByhotelId(current_hotel_id);
+		alloc_hotel.setCurrentStaff(alloc_hotel.getCurrentStaff()+1);
+		curr_hotel.setCurrentStaff((curr_hotel.getCurrentStaff()-1));
+		alloc_hotel.updateRatio();
+		curr_hotel.updateRatio();
+		staff.setHotel(hr.findByhotelId(allocated_hotel_id));
+		hr.save(curr_hotel);
+		hr.save(alloc_hotel);
+		sr.save(staff);
+
+		/*double maxi = 100;
 		Hotel AllocatedHotel = hr.findOne(hotel_id);
 		Cluster c = AllocatedHotel.getCluster();
 		Iterable<Hotel> hotels = hr.findBycluster(c); 
@@ -69,14 +86,10 @@ public class StaffService {
 		hr.save(AllocatedHotel);
 		
 		
-		return "allocated";
+		return "allocated";*/
 	}
 
 
-	public Staff getStaff() {
-		// TODO Auto-generated method stub
-		return sr.findOne((long) 1);
-	}
 
 	
 	//yes

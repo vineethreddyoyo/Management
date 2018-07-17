@@ -116,7 +116,11 @@ public class Hotel {
 		this.ratio = ratio;
 
 	}
-	
+	public void updateRatio(){
+
+    	this.ratio = (double) currentStaff/(double) currentBookings;
+
+	}
 	public Hotel() {
 		super();
 		// TODO Auto-generated constructor stub
