@@ -1,11 +1,7 @@
 package Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.management.HotelRepository;
 import com.example.management.Staff;
@@ -25,14 +21,6 @@ HotelRepository hr;
 StaffService ss;
 
 
-@RequestMapping(method = RequestMethod.POST, value = "/add_staff")
-public String addStaff(@RequestBody Staff s, @RequestParam("hotel_id") Long hotel_id)
-{
-
-	return ss.addStaff(s,hotel_id);
-
-	
-}
 
 @RequestMapping("/get_staff")
 public Staff getStaff() {

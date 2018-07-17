@@ -21,11 +21,22 @@ public class Hotel {
     @Id
     @Column(name ="hotel_id")
     private Long hotelId;
-    
+
+    @Column(name="hotel_name")
+	private String hotelName;
+
     @Column(name="current_bookings")
     private int currentBookings;
-    
-    @Column(name = "current_staff")
+
+	public String getHotelName() {
+		return hotelName;
+	}
+
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+
+	@Column(name = "current_staff")
     private int currentStaff;
     
     @Column(name = "total_rooms")
@@ -95,8 +106,9 @@ public class Hotel {
 	public void setManager(Manager manager) {
 		this.manager = manager;
 	}
-	public Hotel(Long hotelId, int currentBookings, int currentStaff, int totalRooms, double ratio) {
+	public Hotel(Long hotelId, String hotelName,int currentBookings, int currentStaff, int totalRooms, double ratio) {
 		super();
+		this.hotelName = hotelName;
 		this.hotelId = hotelId;
 		this.currentBookings = currentBookings;
 		this.currentStaff = currentStaff;
