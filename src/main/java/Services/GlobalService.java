@@ -28,11 +28,12 @@ public class GlobalService {
 	ManagerRepository mr;
 	
 	public String login(User user) {
-		
+		System.out.println(user.getUsername());
 		Set<Manager> managers = mr.findBymanagerName(user.getUsername());
 		if (managers.isEmpty()) return "no users found";
 		else {
 			for(Manager i : managers) {
+				System.out.println(user.getUsername());
 				if( i.getPassword().contentEquals(user.getPassword()) ) return "Yes";
 				else return "Wrong password";
 			}

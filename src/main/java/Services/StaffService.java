@@ -21,18 +21,15 @@ public class StaffService {
 	
 	@Autowired
 	HotelRepository hr;
-
-	float minRatio  = 2.5f;
 	
 	public String addStaff(Staff s,Long hotel_id) {
-		System.out.println(hotel_id);
 		s.setHotel(hr.findOne(hotel_id));
 		sr.save(s);
 		return "staff added";
 	}
 	
 	
-	public String allocateStaff(Long hotel_id)
+	public String allocate(Long hotel_id)
 	{
 		double maxi = 100;
 		Hotel AllocatedHotel = hr.findOne(hotel_id);
