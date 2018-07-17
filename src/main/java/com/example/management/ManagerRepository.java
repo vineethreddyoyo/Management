@@ -9,4 +9,6 @@ public interface ManagerRepository extends JpaRepository<Manager, Long> {
 
 	Set<Manager> findByUsername(String string);
 
+	Set<Manager> findBymanagerName(String username);
+
 }

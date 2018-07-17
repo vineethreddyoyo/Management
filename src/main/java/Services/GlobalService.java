@@ -1,13 +1,19 @@
 package Services;
 
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.management.Hotel;
 import com.example.management.HotelRepository;
+import com.example.management.Manager;
+import com.example.management.ManagerRepository;
 import com.example.management.Staff;
 import com.example.management.StaffRepository;
+import com.example.management.User;
 
 @Service
 public class GlobalService {
@@ -18,7 +24,24 @@ public class GlobalService {
 	@Autowired
 	HotelRepository hr;
 	
+	@Autowired
+	ManagerRepository mr;
 	
+	public String login(User user) {
+		
+		Set<Manager> managers = mr.findBymanagerName(user.getUsername());
+		if (managers.isEmpty()) return "no users found";
+		else {
+			for(Manager i : managers) {
+				if( i.getPassword().contentEquals(user.getPassword()) ) return "Yes";
+				else return "Wrong password";
+	
+			}
+			
+		}
+
+		return "outside";
+	}
 	
 	public String correct_staff() {
 		
