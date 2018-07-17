@@ -5,9 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 
 @Entity
-public class Manager {
+public class Manager implements Serializable {
 
 	@Id
 	@Column(name ="manager_id")

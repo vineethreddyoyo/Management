@@ -1,13 +1,12 @@
 package Controller;
 
+import java.util.List;
+
+import Services.RequestService;
+import com.example.management.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.management.Hotel;
-import com.example.management.HotelRepository;
-import com.example.management.Manager;
-import com.example.management.ManagerRepository;
 
 @RestController
 public class ManagerController {
@@ -17,7 +16,8 @@ public class ManagerController {
 	
 	@Autowired
 	ManagerRepository mr;
-	
+
+
 	
 	@RequestMapping("/create_manager")
 	public String create_manager() {
