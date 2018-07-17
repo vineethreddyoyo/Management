@@ -3,6 +3,7 @@ package Controller;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import com.example.management.HotelRepository;
 import Services.HotelService;
 
 @RestController
+@CrossOrigin
 public class HotelController {
 @Autowired
 HotelRepository hr;
@@ -26,7 +28,7 @@ HotelService hs;
 @RequestMapping("/create_hotel")
 public String create()
 {
-	Hotel ht = new Hotel((long) 2,0,0,5,1.2);
+	Hotel ht = new Hotel((long) 2,null, 0,0,5,1.2);
 	Cluster c = cr.findOne((long) 2);
 	ht.setCluster(c);
 	hr.save(ht);

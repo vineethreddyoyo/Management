@@ -2,12 +2,14 @@ package Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.management.HotelRepository;
 import com.example.management.StaffRepository;
 
 @RestController
+@CrossOrigin
 public class MyController {
 
     @Autowired

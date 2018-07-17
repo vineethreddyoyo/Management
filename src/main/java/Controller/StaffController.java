@@ -10,6 +10,7 @@ import com.example.management.StaffRepository;
 import Services.StaffService;
 
 @RestController
+@CrossOrigin
 public class StaffController {
 
 @Autowired

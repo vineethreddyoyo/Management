@@ -23,7 +23,7 @@ public class StaffService {
 	HotelRepository hr;
 
 	float minRatio  = 2.5f;
-	
+
 	public String addStaff(Staff s,Long hotel_id) {
 		System.out.println(hotel_id);
 		s.setHotel(hr.findOne(hotel_id));
@@ -35,7 +35,7 @@ public class StaffService {
 
 		return sr.findAllByhotelId(hotel_id);
 	}
-	
+
 	public String allocateStaff(int staff_id,int current_hotel_id,int allocated_hotel_id){
 
 
