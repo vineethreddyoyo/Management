@@ -35,7 +35,6 @@ public class GlobalService {
 			for(Manager i : managers) {
 				if( i.getPassword().contentEquals(user.getPassword()) ) return "Yes";
 				else return "Wrong password";
-	
 			}
 			
 		}
